@@ -6,13 +6,24 @@ pipeline {
     }
   }
   stages {
+
+    stage('Setup') {
+      steps {
+        sh '''
+          apt-get update
+          apt-get install -y docker.io git
+        '''
+      }
+    } 
+
     stage('Checkout') {
       steps {
         sh 'echo passed'
         //git branch: 'main', url: 'https://github.com/iam-veeramalla/Jenkins-Zero-To-Hero.git'
       }
     }
-   
+
+ 
     stage('Build and Push Docker Image') {
       environment {
         DOCKER_IMAGE = "hddewan/ultimate-cicd:${BUILD_NUMBER}"
