@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: python-app
-        image: hddewan/ultimate-cicd:replaceImageTag
+        image: hddewan/ultimate-cicd:9
         ports:
         - containerPort: 8080
